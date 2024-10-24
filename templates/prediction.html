@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make a Loan Prediction</title>
+</head>
+<body>
+    <h1>Make a Loan Prediction</h1>
+
+    <form method="POST" action="{{ url_for('predict') }}">
+        {{ form.hidden_tag() }}
+
+        <!-- Gender -->
+        <p>{{ form.gender.label }} {{ form.gender(size=32) }}</p>
+        {% if form.gender.errors %}
+            <div style="color: red;">{{ form.gender.errors[0] }}</div>
+        {% endif %}
+
+        <!-- Married -->
+        <p>{{ form.married.label }} {{ form.married(size=32) }}</p>
+        {% if form.married.errors %}
+            <div style="color: red;">{{ form.married.errors[0] }}</div>
+        {% endif %}
+
+        <!-- Dependents -->
+        <p>{{ form.dependents.label }} {{ form.dependents(size=32) }}</p>
+        {% if form.dependents.errors %}
+            <div style="color: red;">{{ form.dependents.errors[0] }}</div>
+        {% endif %}
+
+        <!-- Education -->
+        <p>{{ form.education.label }} {{ form.education(size=32) }}</p>
+        {% if form.education.errors %}
+            <div style="color: red;">{{ form.education.errors[0] }}</div>
+        {% endif %}
+
+        <!-- Self Employed -->
+        <p>{{ form.self_employed.label }} {{ form.self_employed(size=32) }}</p>
+        {% if form.self_employed.errors %}
+            <div style="color: red;">{{ form.self_employed.errors[0] }}</div>
+        {% endif %}
+
+        <!-- Applicant Income -->
+        <p>{{ form.applicant_income.label }} {{ form.applicant_income(size=32) }}</p>
+        {% if form.applicant_income.errors %}
+            <div style="color: red;">{{ form.applicant_income.errors[0] }}</div>
+        {% endif %}
+
+	<!-- Coapplicant Income -->
+	<p><label for="coapplicant_income">Coapplicant Income</label>
+        <input id="coapplicant_income" name="coapplicant_income" required size="32" type="number" value="0"></p>
+
+
+        <!-- Loan Amount -->
+        <p>{{ form.loan_amount.label }} {{ form.loan_amount(size=32) }}</p>
+        {% if form.loan_amount.errors %}
+            <div style="color: red;">{{ form.loan_amount.errors[0] }}</div>
+        {% endif %}
+
+        <!-- Loan Term -->
+        <p>{{ form.loan_term.label }} {{ form.loan_term(size=32) }}</p>
+        {% if form.loan_term.errors %}
+            <div style="color: red;">{{ form.loan_term.errors[0] }}</div>
+        {% endif %}
+
+        <!-- Credit History -->
+        <p>{{ form.credit_history.label }} {{ form.credit_history(size=32) }}</p>
+        {% if form.credit_history.errors %}
+            <div style="color: red;">{{ form.credit_history.errors[0] }}</div>
+        {% endif %}
+
+        <!-- Property Area -->
+        <p>{{ form.property_area.label }} {{ form.property_area(size=32) }}</p>
+        {% if form.property_area.errors %}
+            <div style="color: red;">{{ form.property_area.errors[0] }}</div>
+        {% endif %}
+
+        <!-- Submit Button -->
+        <p>{{ form.submit() }}</p>
+    </form>
+
+    <p><a href="{{ url_for('dashboard') }}">Go to Dashboard</a></p>
+</body>
+</html>
